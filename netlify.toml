@@ -1,0 +1,13 @@
+[build]
+    functions="functions"
+    publish = "dist"
+
+
+[dev]
+    publish = "dist"
+
+
+[[redirects]]
+  from = "/*"
+  to = "/uploads/*"
+  status = 200
