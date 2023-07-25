@@ -3,6 +3,9 @@
     publish = "dist"
 
 
+[functions]
+    included_files = ["uploads/**"]
+
 [dev]
     publish = "dist"
 
