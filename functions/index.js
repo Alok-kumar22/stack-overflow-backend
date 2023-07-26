@@ -14,7 +14,7 @@ const app = express();
 const router = express.Router();
 dotenv.config();
 app.use(express.json({ limit: "30mb", extended: true }));
-app.use(express.urlencoded({ limit: "30mb", extended: false }));
+// app.use(express.urlencoded({ limit: "30mb", extended: false }));
 app.use(cors());
 
 cloudinary.v2.config({
