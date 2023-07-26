@@ -8,24 +8,20 @@ import QuestionRoutes from "./routes/Question.js";
 import answerRoutes from "./routes/Answer.js";
 import postRouter from "./routes/posts.js";
 import cloudinary from "cloudinary";
-import serverless from "serverless-http"
+import serverless from "serverless-http";
 
-
+const app = express();
 const router = express.Router();
-connectDB();
+dotenv.config();
+app.use(express.json({ limit: "30mb", extended: true }));
+app.use(cors());
+app.use(express.urlencoded({ limit: "30mb", extended: true }));
 
 cloudinary.v2.config({
     cloud_name: "dzf2bn5ws",
     api_key: "976119987757764",
     api_secret: "***************************",
 });
-
-const app = express();
-dotenv.config();
-app.use(express.json({ limit: "30mb", extended: true }));
-
-app.use(cors());
-app.use(express.urlencoded({ limit: "30mb", extended: true }));
 export const instance = new Razorpay({
     key_id: "rzp_test_sgdK1uHHwrzcFi",
     key_secret: "X9tCCmCavSYEQ1GhYKFvn75K",
@@ -49,6 +45,6 @@ router.get("/", (req, res) => {
 
 app.use("/.netlify/functions/index", router);
 
-
+connectDB();
 
 export const handler = serverless(app);
