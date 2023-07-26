@@ -17,15 +17,15 @@ app.use(express.json({ limit: "30mb", extended: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
-// cloudinary.v2.config({
-//     cloud_name: "dzf2bn5ws",
-//     api_key: "976119987757764",
-//     api_secret: "***************************",
-// });
-// export const instance = new Razorpay({
-//     key_id: "rzp_test_sgdK1uHHwrzcFi",
-//     key_secret: "X9tCCmCavSYEQ1GhYKFvn75K",
-// });
+cloudinary.v2.config({
+    cloud_name: "dzf2bn5ws",
+    api_key: "976119987757764",
+    api_secret: "***************************",
+});
+export const instance = new Razorpay({
+    key_id: "rzp_test_sgdK1uHHwrzcFi",
+    key_secret: "X9tCCmCavSYEQ1GhYKFvn75K",
+});
 
 router.use("/user", UserRoutes);
 router.use("/questions", QuestionRoutes);
